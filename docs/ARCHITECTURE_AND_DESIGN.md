@@ -35,7 +35,7 @@
 *   Final dataset: `cityshield_v1` (stratified 80/10/10 split).
 
 ### 5. Final Contracts
-**DetectionStream:** Schema containing `camera_id`, `location_id`, `timestamp`, `boxes`, and `classes`.
+**DetectionStream:** Schema containing `frame_id`, `timestamp`, `camera_id`, `location_id`, and `detections[]`.
 **EventPayload:** Analytics engine output containing `event_type`, `risk_score`, and `metadata`.
 
 ---

@@ -3,7 +3,7 @@
 ## Purpose
 The `platform/` directory houses the backend, message bus, and dashboard visualization components of CityShield AI. 
 
-## 🚨 IMPORTANT: HACKATHON TEAMS SHOULD NOT SPEND DEVELOPMENT TIME HERE
+## [!] IMPORTANT: HACKATHON TEAMS SHOULD NOT SPEND DEVELOPMENT TIME HERE
 **Do not spend hackathon development time here unless specifically assigned.**
 
 The MVP focuses exclusively on edge-based intelligence running in `ml_engine/` and `analytics/`.

@@ -28,7 +28,7 @@ Enable the detection of severe infrastructure collapse events by expanding the b
 *   Total target dataset size: 4,500 images.
 
 ## Augmentation Strategy
-*   Rotation (±15°)
+*   Rotation (+/- 15 degrees)
 *   Exposure variation (simulating night/day lighting)
 *   Grayscale (simulating cheap CCTV cameras)
 

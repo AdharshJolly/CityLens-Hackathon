@@ -39,7 +39,7 @@ CityShield AI is a real-time smart city video analytics platform. It consumes CC
 
 ### System Constraints
 *   **Compute:** 4GB VRAM RTX 3050 Laptop.
-*   **RAM:** 16GB System RAM (No caching, no multi-worker dataloading).
+*   **RAM:** 16GB Minimum (Dataloader worker counts and cache settings automatically scale dynamically via `psutil`).
 *   **Database:** PostgreSQL / Supabase.
 
 ---
