@@ -57,7 +57,8 @@ def convert():
     skipped = 0
     for i, img_path in enumerate(image_paths):
         # Find matching mask (same stem, any extension)
-        mask_candidates = list(Path(RAW_MASKS_DIR).glob(img_path.stem + ".*"))
+        mask_number = img_path.stem.replace("fgbg", "")
+        mask_candidates = list(Path(RAW_MASKS_DIR).glob("mask" + mask_number + ".*"))
         if not mask_candidates:
             print(f"  [SKIP] No mask for {img_path.name}")
             skipped += 1
