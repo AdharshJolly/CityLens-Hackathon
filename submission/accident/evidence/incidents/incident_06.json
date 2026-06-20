@@ -1,0 +1,10 @@
+{
+  "incident_id": "5a74c91a-967c-42ef-862e-1e825f1c454c",
+  "timestamp": "1781840960.2732928",
+  "acri_score": 0.244,
+  "severity": 0,
+  "vulnerability": 0.6,
+  "hazard_type": "pedestrian_hazard",
+  "status": "active",
+  "dark_spot": false
+}

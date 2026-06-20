@@ -1,0 +1,10 @@
+{
+  "incident_id": "e10b35d4-0cc2-4e83-85dc-f1923c7317f5",
+  "timestamp": "1781840960.2742238",
+  "acri_score": 0.3135,
+  "severity": 0.49,
+  "vulnerability": 0.3,
+  "hazard_type": "collision",
+  "status": "active",
+  "dark_spot": false
+}
