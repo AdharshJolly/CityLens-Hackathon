@@ -1,122 +1,78 @@
-# CityShield Fire Intelligence Engine
+# CityShield-AI 🛡️
 
 ## 1. Project Overview
-CityShield is an advanced, edge-deployable computer vision module built to secure urban environments. This repository contains the **Fire Intelligence Engine**, a highly optimized subsystem that detects, tracks, and calculates the severity of fires and smoke plumes in real-time.
+CityShield is an advanced, edge-deployable computer vision AI system built to secure urban environments. Designed to integrate directly into existing municipal CCTV and drone networks, CityShield moves emergency response from reactive to proactive.
 
-## 2. Final Results
-Our network delivers life-saving precision on extremely lightweight hardware:
-*   **Overall mAP50:** 76.8%
-*   **Smoke mAP50:** 84.9%
-*   **Fire mAP50:** 68.6%
-*   **Precision:** 77.47% | **Recall:** 68.89%
-*   **Inference Speed:** Edge-optimized (YOLO11 Nano architecture)
+The system is highly modular and currently supports three distinct hazard detection streams, all powered by edge-optimized **YOLO11n** architecture:
+1. **🔥 Fire Intelligence Engine** (Fire & Smoke Detection)
+2. **🌳 Collapse Intelligence Engine** (Fallen Tree Detection)
+3. **🚗 Accident Intelligence Engine** (Vehicle Collision & Pedestrian Hazard Detection)
 
-## 3. PSRI Analytics Layer
-CityShield is **more than just object detection**. Raw bounding boxes are useless to a municipal dispatcher. We built the **Predicted Severity & Risk Index (PSRI)** engine, which translates pixel data into actionable intelligence. The system:
-*   Tracks the temporal persistence of a hazard to filter out 1-frame glitches (sun glare).
-*   Calculates vulnerability based on estimated human and vehicular proximity.
-*   Outputs structured JSON incidents ready for immediate API consumption.
+## 2. Why CityShield Matters
+Traditional urban emergency response is bottlenecked by human observation and 911 calls. By the time a dispatcher is alerted, a hazard may have already escalated beyond control. CityShield provides immediate, automated, and mathematically quantified risk-scoring of hazards before human dispatchers are even aware an incident has occurred.
 
-## 4. Problem Statement
-Traditional urban emergency response is entirely reactive, bottlenecked by human observation and 911 calls. By the time a dispatcher is alerted, a fire may have already escalated beyond control.
+## 3. Core Modules & Performance
 
-## 5. Why CityShield Matters
-By deploying our YOLO11n-based intelligence engine directly into existing municipal CCTV and drone networks, CityShield provides immediate, automated, and mathematically quantified risk-scoring of fires before human dispatchers are even aware an incident has occurred.
+### 🔥 Fire Intelligence Engine
+Detects, tracks, and calculates the severity of fires and smoke plumes.
+* **Overall mAP50:** 76.8%
+* **Features:** PSRI (Predicted Severity & Risk Index) tracking temporal persistence, human/vehicular vulnerability estimation.
+* **Status:** ✅ Trained & Ready
 
-## 6. Solution Overview
-We utilize a state-of-the-art YOLO11n object detection model, heavily fine-tuned on a massive custom dataset. The outputs of this model are funneled through our custom Python tracking adapters into the PSRI scoring engine, delivering a complete end-to-end incident management pipeline.
+### 🌳 Collapse Intelligence Engine
+Detects fallen trees and structural collapses obstructing urban roads.
+* **Overall mAP50:** 84.1%
+* **Features:** Fast 17ms inference speed, 80% real-world out-of-distribution detection rate.
+* **Status:** ✅ Trained & Ready
 
-## 7. System Architecture
-The pipeline flows seamlessly: `Image ➔ YOLO11n ➔ YOLO Adapter ➔ Analyzer ➔ PSRI Engine ➔ Vulnerability Engine ➔ Incident Manager ➔ FireEvent JSON`. (See [System Architecture](docs/SYSTEM_ARCHITECTURE.md) for full details).
+### 🚗 Accident Intelligence Engine
+Detects vehicle collisions and pedestrian safety hazards.
+* **Target mAP50:** ≥ 65%
+* **Features:** ACRI (Accident & Collision Risk Index) analytics, persistence filtering, "Dark Spot" tracking for intersections with 3+ historical incidents.
+* **Status:** ⚠️ Analytics ready, awaiting final YOLO model training
 
-## 8. Fire Intelligence Engine
-Our custom `YOLO Adapter` strips away the bulk of the Ultralytics backend, parsing raw bounding box tensors into clean, structured `Detection` domain objects for blazing-fast downstream processing.
+## 4. Advanced Analytics Layer
+CityShield is **more than just object detection**. Raw bounding boxes are useless to a municipal dispatcher. Each module runs detections through a sophisticated analytics pipeline:
+* **Frame Persistence:** Filters out 1-frame glitches (like sun glare or passing vehicles).
+* **Vulnerability Scoring:** Weighs total hazard area against proximity to pedestrians and vehicles.
+* **Incident Lifecycle Management:** Tracks incidents through `active → escalated → resolved` states and outputs structured JSON payloads ready for dispatch API consumption.
 
-## 9. Dataset Summary
-Trained on the highly curated **Fire V3** dataset, featuring over 15,000 augmented images mapped from Bowfire, FireNet, and various public sources. See the [Dataset Source Manifest](docs/DATASET_SOURCE_MANIFEST.md) for full provenance and zero data-leakage guarantees.
+## 5. System Architecture
+The pipeline flows seamlessly across all modules: 
+`Video Frame ➔ YOLO11n ➔ Adapter Layer ➔ State Analyzer ➔ Severity & Risk Scoring ➔ Incident Manager ➔ JSON Event Output`.
 
-## 10. Failure Analysis Highlights
-Rigorous forensic audits revealed our model prioritizes macro-level safety hazards. Performance dips primarily on "microscopic" fires (<0.5% image area) and occasionally confuses bright sodium streetlights. The PSRI engine successfully mitigates these false positives via temporal thresholds. See [Failure Analysis](docs/FAILURE_ANALYSIS.md).
-
-## 11. Repository Structure
+## 6. Repository Structure
 ```text
-├── submission/              # Final competition artifacts
+├── submission/              # Final competition artifacts & deliverables
 │   ├── fire/                # Fire module weights, metrics, samples
-│   ├── accident/            # (Teammate's module)
-│   └── ...                  # (Other modules)
-
-├── hazards/fire/            # Core logic (analytics, inference)
-├── docs/                    # Audits, architecture, and validation reports
+│   ├── collapse/            # Collapse module weights, metrics, samples
+│   └── accident/            # Accident module deliverables
+├── hazards/                 # Core AI modules
+│   ├── fire/                
+│   ├── collapse/            
+│   └── accident/            
+├── shared/                  # Shared data contracts and python utilities
+├── docs/                    # Global architecture, audits, and guides
 └── requirements.txt         # Pinned python dependencies
 ```
 
-## 12. Local Reproducibility
-To setup the environment natively:
+## 7. Local Reproducibility
+To setup the environment natively and run inferences:
 ```bash
-pip install -r requirements.txt
-```
-
-## 13. Competition Deliverables
-All requested deliverables (Weights, Code, Bounding Box CSVs, Annotated Images, Metrics) for the Fire Intelligence Engine are located directly within the `/submission/fire` directory.
-
-## 15. Future Improvements
-*   **Semantic Segmentation:** Migrating from bounding boxes to Instance Segmentation (YOLO11n-seg) to calculate exact pixel-perfect fire area.
-*   **Thermal Fusion:** Integrating FLIR thermal data to completely eliminate false positives caused by sun glare.
-# CityShield — Accident Intelligence Engine
-
-## Overview
-CityShield Accident Intelligence is a fully independent computer vision module
-that detects vehicle collisions and pedestrian hazards from urban CCTV and dashcam feeds.
-
-## Results (target after training)
-- **mAP50:** ≥ 65%
-- **Classes:** `accident`, `pedestrian_hazard`
-- **Model:** YOLO11n (edge-optimized)
-
-## ACRI Analytics Layer
-Raw YOLO detections are not enough. CityShield translates bounding boxes into
-actionable intelligence through the **ACRI (Accident & Collision Risk Index)** engine:
-
-- Filters single-frame false positives via persistence thresholding
-- Scores severity based on accident area, pedestrian count, and vehicle density
-- Tracks incident lifecycle: `active → escalated → resolved`
-- Flags **Dark Spots** — locations with 3+ historical incidents
-
-## Pipeline
-```
-Video Frame → YOLO11n → YOLOAdapter → Analyzer → ACRI + Vulnerability → IncidentManager → AccidentEvent JSON
-```
-
-## Repository Structure
-```
-├── hazards/accident/
-│   ├── analytics/         ← ACRI engine, vulnerability, incident lifecycle
-│   ├── configs/           ← thresholds.yaml, dataset.yaml, training.yaml
-│   ├── inference/         ← image, video, realtime, pipeline runner
-│   ├── tests/             ← pytest test suite
-│   └── training/          ← YOLO training script
-├── shared/
-│   ├── contracts/         ← Detection, AccidentEvent data classes
-│   └── utilities/         ← config loader, logger
-├── submission/accident/   ← weights, metrics, evidence JSONs, sample images
-└── docs/                  ← architecture, dataset manifest, reproducibility guide
-```
-
-## Quick Start
-```bash
+# Install dependencies
 pip install -r requirements.txt
 
-# Run analytics pipeline (no model needed)
+# Example: Run the Accident Analytics pipeline
 python hazards/accident/inference/run_accident_pipeline.py
 
-# Run tests
-pytest hazards/accident/tests/test_analytics.py -v
+# Example: Test Fire Detection using the CLI
+yolo detect predict model="submission/fire/best.pt" source="submission/fire/evidence/samples/sample_01_input.jpg" conf=0.25 show=True
 ```
 
-## Datasets
-- [Kaggle Accident Dataset](https://www.kaggle.com/datasets/picekl/accident)
-- [Road Crossing Dataset](https://www.kaggle.com/datasets/siddhi17/road-crossing-dataset)
+## 8. Competition Deliverables
+All requested deliverables (Model Weights, Bounding Box CSVs, Annotated Images, Confusion Matrices, PR Curves) for each module are located directly within their respective folders in the `/submission` directory.
 
-## Part of CityShield AI
-This module handles: **Accident Intelligence (Vehicle Collision + Pedestrian Hazard Detection)**
-Other modules (fire, streetlight, animal, collapse) are maintained by teammates.
+## 9. Future Improvements
+* **Semantic Segmentation:** Migrating from bounding boxes to Instance Segmentation (YOLO11n-seg) to calculate exact pixel-perfect hazard areas.
+* **Thermal Fusion:** Integrating FLIR thermal data to completely eliminate false positives caused by sun glare and visual artifacts.
+
