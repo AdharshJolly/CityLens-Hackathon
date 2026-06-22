@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  cityshield:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: cityshield-app
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+

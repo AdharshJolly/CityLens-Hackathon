@@ -82,8 +82,18 @@ The pipeline flows seamlessly across all modules:
 └── requirements.txt         # Pinned python dependencies
 ```
 
-## 7. Local Reproducibility
-To setup the environment natively and run inferences:
+## 7. Quickstart: Interactive UI (For Judges)
+The easiest way to evaluate all 5 CityShield AI models is through our interactive web dashboard. The entire ecosystem is containerized for seamless 1-click execution.
+
+1. Ensure **Docker** is installed and running.
+2. Open your terminal in the project root and run:
+```bash
+docker compose up --build
+```
+3. Open your browser and navigate to **`http://localhost:8501`** to access the live video & image dashboard!
+
+## 8. Local Native Reproducibility
+To setup the Python environment natively and run script-level inferences:
 ```bash
 # Install dependencies
 pip install -r requirements.txt
