@@ -3,10 +3,11 @@
 ## 1. Project Overview
 CityShield is an advanced, edge-deployable computer vision AI system built to secure urban environments. Designed to integrate directly into existing municipal CCTV and drone networks, CityShield moves emergency response from reactive to proactive.
 
-The system is highly modular and currently supports three distinct hazard detection streams, all powered by edge-optimized **YOLO11n** architecture:
+The system is highly modular and currently supports four distinct hazard detection streams, all powered by edge-optimized **YOLO11n** architecture:
 1. **🔥 Fire Intelligence Engine** (Fire & Smoke Detection)
 2. **🌳 Collapse Intelligence Engine** (Fallen Tree Detection)
 3. **🚗 Accident Intelligence Engine** (Vehicle Collision & Pedestrian Hazard Detection)
+4. **🦌 Animal Intelligence Engine** (Animal Hazard Detection)
 
 ## 2. Why CityShield Matters
 Traditional urban emergency response is bottlenecked by human observation and 911 calls. By the time a dispatcher is alerted, a hazard may have already escalated beyond control. CityShield provides immediate, automated, and mathematically quantified risk-scoring of hazards before human dispatchers are even aware an incident has occurred.
@@ -31,6 +32,12 @@ Detects vehicle collisions and pedestrian safety hazards.
 * **Features:** ACRI (Accident & Collision Risk Index) analytics, persistence filtering, "Dark Spot" tracking for intersections with 3+ historical incidents.
 * **Status:** ⚠️ Analytics ready, awaiting final YOLO model training
 
+### 🦌 Animal Intelligence Engine
+Detects animals on roads and public areas from images and video footage to flag potential hazards.
+* **Dataset:** Fine-tuned on the Animal Crossing dataset.
+* **Features:** Video mode ByteTrack multi-object tracking, per-track dwell time calculation in seconds.
+* **Status:** ✅ Trained & Ready
+
 ## 4. Advanced Analytics Layer
 CityShield is **more than just object detection**. Raw bounding boxes are useless to a municipal dispatcher. Each module runs detections through a sophisticated analytics pipeline:
 * **Frame Persistence:** Filters out 1-frame glitches (like sun glare or passing vehicles).
@@ -46,11 +53,13 @@ The pipeline flows seamlessly across all modules:
 ├── submission/              # Final competition artifacts & deliverables
 │   ├── fire/                # Fire module weights, metrics, samples
 │   ├── collapse/            # Collapse module weights, metrics, samples
-│   └── accident/            # Accident module deliverables
+│   ├── accident/            # Accident module deliverables
+│   └── animal/              # Animal module deliverables
 ├── hazards/                 # Core AI modules
 │   ├── fire/                
 │   ├── collapse/            
-│   └── accident/            
+│   ├── accident/            
+│   └── animal/            
 ├── shared/                  # Shared data contracts and python utilities
 ├── docs/                    # Global architecture, audits, and guides
 └── requirements.txt         # Pinned python dependencies
