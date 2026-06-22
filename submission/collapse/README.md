@@ -116,12 +116,12 @@ python hazards\collapse\inference\test_real_world.py
 
 | Deliverable | Location |
 |---|---|
-| Model weights | `runs/detect/runs/collapse_v1/weights/best.pt` |
-| Training metrics | `runs/detect/runs/collapse_v1/results.csv` |
-| PR Curve | `runs/detect/runs/collapse_v1/BoxPR_curve.png` |
-| Confusion Matrix | `runs/detect/runs/collapse_v1/confusion_matrix.png` |
-| Sample outputs (10 images, bounding boxes drawn) | `outputs/collapse/out_*.jpg` |
-| Bounding box coordinates | `outputs/collapse/predictions.csv` |
+| Model weights | `best.pt` |
+| Training metrics | `results.csv` |
+| PR Curve | `BoxPR_curve.png` |
+| Confusion Matrix | `confusion_matrix.png` |
+| Sample outputs (10 image pairs) | `evidence/samples/` |
+| Bounding box coordinates | `predictions.csv` |
 
 ## Known Limitations
 

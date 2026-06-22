@@ -77,9 +77,12 @@ python inference.py
 | File | Description |
 |------|-------------|
 | `best.pt` | Best model weights from training |
-| `prediction_metrics.csv` | Bounding box detections (image/frame, class, confidence, x1, y1, x2, y2) |
+| `results.csv` | Training metrics per epoch |
+| `BoxPR_curve.png` | Precision-Recall curve |
+| `confusion_matrix.png` | Confusion matrix from validation set |
+| `predictions.csv` | Bounding box detections (image/frame, class, confidence, x1, y1, x2, y2) |
 | `dwell_time.csv` | Per-track dwell time for video inference |
-| `sample_outputs/` | Annotated images and video with bounding boxes drawn |
+| `evidence/samples/` | Annotated images and video with bounding boxes drawn |
 
 ---
 

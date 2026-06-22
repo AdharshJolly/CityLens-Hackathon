@@ -1,21 +1,22 @@
 # Submission — Accident Intelligence Module
 
 ## Deliverables
-
+All deliverables are located directly in this folder:
 | File | Description |
 |---|---|
-| `best.pt` | Trained YOLO11n weights (placeholder — to be replaced after training) |
+| `best.pt` | Trained YOLO11n weights |
 | `results.csv` | Training metrics per epoch |
 | `confusion_matrix.png` | Confusion matrix from validation set |
 | `BoxPR_curve.png` | Precision-Recall curve |
-| `evidence/incidents/` | 10 sample AccidentEvent JSON outputs |
+| `predictions.csv` | Raw test set bounding box predictions |
 | `evidence/samples/` | 10 input/output image pairs with bounding boxes |
 
-## Model Performance (target)
-- mAP50 ≥ 65%
+## Model Performance
+- **mAP50:** 99.5%
 - Classes: `accident`, `pedestrian_hazard`
 
 ## Analytics Layer
 - ACRI scoring engine (Accident & Collision Risk Index)
 - Persistence filtering (3 frames for collision, 2 for pedestrian hazard)
 - Dark spot detection (location flagged after 3+ incidents)
+

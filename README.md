@@ -1,5 +1,10 @@
 # CityShield-AI 🛡️
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![YOLO11](https://img.shields.io/badge/Model-YOLO11n-FF6F00?style=for-the-badge&logo=pytorch)
+![Status](https://img.shields.io/badge/Status-Submission_Ready-10B981?style=for-the-badge)
+![Modules](https://img.shields.io/badge/Modules-5_Hazard_Engines-8B5CF6?style=for-the-badge)
+
 ## 1. Project Overview
 CityShield is an advanced, edge-deployable computer vision AI system built to secure urban environments. Designed to integrate directly into existing municipal CCTV and drone networks, CityShield moves emergency response from reactive to proactive.
 
