@@ -1,0 +1,12 @@
+Dataset: Animal Crossing (Roboflow)
+URL: https://app.roboflow.com/joann-binny/animal-crossing-aa8c5-4lkpu/train
+Version: 1
+ 
+Split:
+  Train: 680 images
+  Valid: 193 images
+  Test:  97 images
+ 
+Augmentations: None
+Classes: animal (unified label covering cattle, deer, dog, goat)
+Format: YOLOv11
