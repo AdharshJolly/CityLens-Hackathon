@@ -17,19 +17,19 @@ def train_model():
     model = YOLO(config['model'])
     logger.info(f"Training Config: {config}")
 
-    # DO NOT EXECUTE IN THIS PHASE — uncomment when dataset is ready
-    # model.train(
-    #     data=dataset,
-    #     epochs=config['epochs'],
-    #     imgsz=config['imgsz'],
-    #     batch=config['batch'],
-    #     patience=config['patience'],
-    #     amp=config['amp'],
-    #     workers=config['workers'],
-    #     project=config['project'],
-    #     name=config['name'],
-    #     save_period=config['save_period']
-    # )
+    # Dataset is ready - Executing training pipeline
+    model.train(
+        data=dataset,
+        epochs=config['epochs'],
+        imgsz=config['imgsz'],
+        batch=config['batch'],
+        patience=config['patience'],
+        amp=config['amp'],
+        workers=config['workers'],
+        project=config['project'],
+        name=config['name'],
+        save_period=config['save_period']
+    )
 
 
 if __name__ == "__main__":
