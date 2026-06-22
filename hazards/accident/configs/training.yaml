@@ -1,0 +1,13 @@
+model: "yolo11n.pt"
+imgsz: 640
+batch: 16
+epochs: 50
+patience: 10
+amp: true
+workers: 2
+project: "experiments"
+name: "accident_v1"
+save_period: 5
+augmentations:
+  mosaic: 0.5
+  mixup: 0.0

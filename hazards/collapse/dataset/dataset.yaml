@@ -1,0 +1,10 @@
+path: C:/Projects/Citylens_Hackathon/CityShield-AI/data/collapse
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 1
+names:
+  - fallen_tree
+
+  

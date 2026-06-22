@@ -1,0 +1,20 @@
+persistence:
+  accident_frames: 3
+  pedestrian_hazard_frames: 2
+
+acri_weights:
+  accident_area: 0.35
+  pedestrian_count: 0.25
+  accident_count: 0.20
+  persistence_duration: 0.10
+  vehicle_density: 0.10
+
+vulnerability_weights:
+  pedestrian_count: 0.6
+  vehicle_density: 0.4
+
+escalation:
+  acri_threshold: 0.70
+
+dark_spot:
+  incident_count_threshold: 3

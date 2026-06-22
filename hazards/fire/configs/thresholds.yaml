@@ -1,0 +1,18 @@
+
+persistence:
+  fire_frames: 3
+  smoke_frames: 5
+psri_weights:
+  fire_area: 0.3
+  smoke_area: 0.1
+  fire_count: 0.2
+  smoke_count: 0.1
+  persistence_duration: 0.1
+  people_exposure: 0.1
+  vehicle_exposure: 0.1
+vulnerability_weights:
+  people_count: 0.5
+  vehicle_count: 0.3
+  crowd_density: 0.2
+escalation:
+  psri_threshold: 0.75

@@ -38,6 +38,7 @@ venv.bak/
 data/
 experiments/
 *.pt
+!submission/**/*.pt
 *.onnx
 *.weights
 
@@ -60,9 +61,21 @@ environment_report.json
 # Reports and temporary files
 docs/archive/
 *.csv
+!submission/**/*.csv
 *.png
+!submission/**/*.png
 cleanup_orchestrator.py
 transition_orchestrator.py
 fi_4_orchestrator.py
 generate_fi_2_5_reports.py
 generate_fi_3_reports.py
+data/
+*.pt
+outputs/
+__pycache__/
+*.pyc
+.env
+runs/
+experiments/
+*.egg-info/
+.pytest_cache/

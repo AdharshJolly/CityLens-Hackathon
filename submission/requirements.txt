@@ -1,0 +1,12 @@
+fastapi
+pydantic
+uvicorn
+roboflow
+kaggle
+ultralytics
+torch
+torchvision
+wandb
+numpy
+pandas
+opencv-python
