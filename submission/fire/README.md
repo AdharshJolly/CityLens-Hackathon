@@ -1,4 +1,4 @@
-# Submission — Streetlight Intelligence Module
+# Submission — Fire Intelligence Module
 
 ## Deliverables
 All deliverables are located directly in this folder:
@@ -12,11 +12,11 @@ All deliverables are located directly in this folder:
 | `evidence/samples/` | 10 input/output image pairs with bounding boxes |
 
 ## Model Performance
-- **mAP50:** 89.0%
-- **Classes:** `streetlight_on`, `streetlight_off`, `flickering`
+- **mAP50:** 76.8%
+- **Classes:** `fire`, `smoke`
 
 ## Analytics Layer
-- Brightness anomaly detection
-- Daylight awareness
-- Outage localization analytics
+- PSRI (Predicted Severity & Risk Index)
+- Temporal persistence tracking
+- Human and vehicular vulnerability estimation
 

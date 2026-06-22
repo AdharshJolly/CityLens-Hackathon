@@ -13,10 +13,10 @@ All deliverables are located directly in this folder:
 
 ## Model Performance
 - **mAP50:** 99.5%
-- Classes: `accident`, `pedestrian_hazard`
+- **Classes:** `accident`, `pedestrian_hazard`
 
 ## Analytics Layer
-- ACRI scoring engine (Accident & Collision Risk Index)
+- ACRI (Accident & Collision Risk Index) engine
 - Persistence filtering (3 frames for collision, 2 for pedestrian hazard)
-- Dark spot detection (location flagged after 3+ incidents)
+- "Dark Spot" tracking (location dynamically flagged after 3+ historical incidents)
 

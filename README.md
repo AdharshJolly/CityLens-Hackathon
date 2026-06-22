@@ -1,10 +1,20 @@
-# CityShield-AI 🛡️
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
-![YOLO11](https://img.shields.io/badge/Model-YOLO11n-FF6F00?style=for-the-badge&logo=pytorch)
+# 🛡️ CityShield-AI
+
+**Proactive urban emergency response powered by Edge AI.**
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/YOLO11n-000000?style=for-the-badge&logo=ultralytics&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+<br>
 ![Status](https://img.shields.io/badge/Status-Submission_Ready-10B981?style=for-the-badge)
 ![Modules](https://img.shields.io/badge/Modules-5_Hazard_Engines-8B5CF6?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+</div>
 
 ## 1. Project Overview
 CityShield is an advanced, edge-deployable computer vision AI system built to secure urban environments. Designed to integrate directly into existing municipal CCTV and drone networks, CityShield moves emergency response from reactive to proactive.
@@ -21,37 +31,13 @@ Traditional urban emergency response is bottlenecked by human observation and 91
 
 ## 3. Core Modules & Performance
 
-### 🔥 Fire Intelligence Engine
-Detects, tracks, and calculates the severity of fires and smoke plumes.
-* **Overall mAP50:** 76.8%
-* **Features:** PSRI (Predicted Severity & Risk Index) tracking temporal persistence, human/vehicular vulnerability estimation.
-* **Status:** ✅ Trained & Ready
-
-### 🌳 Collapse Intelligence Engine
-Detects fallen trees and structural collapses obstructing urban roads.
-* **Overall mAP50:** 84.1%
-* **Features:** Fast 17ms inference speed, 80% real-world out-of-distribution detection rate.
-* **Status:** ✅ Trained & Ready
-
-### 🚗 Accident Intelligence Engine
-Detects vehicle collisions and pedestrian safety hazards.
-* **Overall mAP50:** 99.5%
-* **Features:** ACRI (Accident & Collision Risk Index) analytics, persistence filtering, "Dark Spot" tracking for intersections with 3+ historical incidents.
-* **Status:** ✅ Trained & Ready
-
-### 🦌 Animal Intelligence Engine
-Detects animals on roads and public areas from images and video footage to flag potential hazards.
-* **Overall mAP50:** 94.0%
-* **Dataset:** Fine-tuned on the Animal Crossing dataset.
-* **Features:** Video mode ByteTrack multi-object tracking, per-track dwell time calculation in seconds.
-* **Status:** ✅ Trained & Ready
-
-### 💡 Streetlight Intelligence Engine
-Monitors streetlights for outages, flickering, and daytime burning to optimize municipal maintenance.
-* **Overall mAP50:** 89.0%
-* **Classes:** `streetlight_on`, `streetlight_off`, `flickering`
-* **Features:** Brightness anomaly detection, daylight awareness, and outage localization analytics.
-* **Status:** ✅ Trained & Ready
+| Engine | Target Hazard | mAP50 | Key Features & Analytics | Status |
+|---|---|:---:|---|:---:|
+| **🔥 Fire** | Fires & Smoke plumes | **76.8%** | PSRI Severity Index, Human Vulnerability estimation | ✅ |
+| **🌳 Collapse** | Fallen trees & barricades | **84.1%** | 17ms inference speed, 80% OOD detection rate | ✅ |
+| **🚗 Accident** | Collisions & pedestrians | **99.5%** | ACRI Index, Persistence filtering, "Dark Spot" tracking | ✅ |
+| **🦌 Animal** | Stray animals & wildlife | **94.0%** | ByteTrack multi-object tracking, Dwell time calculation | ✅ |
+| **💡 Streetlight** | Outages & flickering | **89.0%** | Brightness anomaly detection, Daylight awareness | ✅ |
 
 ## 4. Advanced Analytics Layer
 CityShield is **more than just object detection**. Raw bounding boxes are useless to a municipal dispatcher. Each module runs detections through a sophisticated analytics pipeline:
